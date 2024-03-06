@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 function App() {
 
-  const [courses, setCourses] = useState(null);
+  const [courses, setCourses] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,14 +17,13 @@ function App() {
         const output = await res.json();
         // console.log(data);
         setCourses(output.data);
-
       } 
       catch (error) {
         toast.error("Something went wrong");
       }
     }
     fetchData();
-  }, []);
+  }, []); //will run at first only
 
 
   return (
@@ -32,6 +31,12 @@ function App() {
       <Navbar />
 
       <FilterBar filterData={filterData} />
+
+      {/* <div>
+        {
+          
+        }
+      </div> */}
 
       <Cards courses={courses}/>
     </div>
