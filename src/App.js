@@ -31,10 +31,10 @@ function App() {
   }, []); //will run at first only
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <div className="min-h-screen flex flex-col bg-bgDark2">
+      <Navbar/>
 
-    <div className="bg-bgDark2">
+    <div className="">
       <FilterBar 
       filterData={filterData} 
       category={category}
@@ -45,9 +45,11 @@ function App() {
         className="w-11/12 max-w-[1200px] mx-auto flex 
         justify-center items-center min-h-[50vh]"
       >
-        {loading ? 
-        <Spinner /> : 
-        <Cards courses={courses} category={category} />}
+        {
+          loading ? 
+          <Spinner /> : 
+          <Cards courses={courses} category={category} />
+        }
       </div>
           </div>
     </div>

@@ -17,7 +17,11 @@ const FilterBar = ({ filterData, category, setCategory }) => {
             onClick={() => filterHandler(data.title)}
             className={`text-lg px-2 py-1 rounded-md font-medium 
            text-white bg-black hover:bg-opacity-50 border-2 
-           
+            ${
+              category === data.title
+                ? "bg-opacity-60 border-white"
+                : "bg-opacity-40 border-transparent"
+            }
            transition-all duration-300`}
             key={data.id}
           >
@@ -29,10 +33,5 @@ const FilterBar = ({ filterData, category, setCategory }) => {
     </div>
   );
 };
-// ${
-//     category === data.title
-//       ? "bg-opacity-60 border-white"
-//       : "bg-opacity-40 border-transparent"
-//   }
 
 export default FilterBar;
