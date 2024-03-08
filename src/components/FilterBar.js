@@ -1,7 +1,11 @@
 import React from "react";
 
 // always use any key while using maps
-const FilterBar = ({ filterData }) => {
+const FilterBar = ({ filterData, category, setCategory }) => {
+  function filterHandler(title) {
+    setCategory(title);
+  }
+
   return (
     <div
       className="w-11/12 flex flex-wrap max-w-max space-x-4 
@@ -10,6 +14,7 @@ const FilterBar = ({ filterData }) => {
       {filterData.map((data) => {
         return (
           <button
+            onClick={() => filterHandler(data.title)}
             className={`text-lg px-2 py-1 rounded-md font-medium 
            text-white bg-black hover:bg-opacity-50 border-2 
            
